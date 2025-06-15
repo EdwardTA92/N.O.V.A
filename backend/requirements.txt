@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+langgraph
+crewai
+autogen
+redis
+chromadb
+openrouter-sdk
+python-dotenv

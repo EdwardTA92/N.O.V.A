@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+
+# Env files
+.env
+
+# Docker
+chroma/

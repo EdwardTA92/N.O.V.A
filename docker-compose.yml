@@ -1,0 +1,67 @@
+version: '3.9'
+services:
+  planner:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8001:8000"
+  compiler:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8002:8000"
+  runner:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8003:8000"
+  connector_gen:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8004:8000"
+  novelty:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8005:8000"
+  synthesis:
+    build: ./backend
+    env_file:
+      - .env.example
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8006:8000"
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  chroma:
+    image: chromadb/chroma:latest
+    volumes:
+      - ./chroma:/data
+    ports:
+      - "8007:8000"
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: npm run dev
